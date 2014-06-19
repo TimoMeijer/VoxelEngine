@@ -1,0 +1,11 @@
+# Scala binaries
+target
+*.class
+
+# IDE generated
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea
+out
