@@ -1,5 +1,5 @@
 name := """VoxelEngine Example"""
 
-version := "0.0.1"
+version := "nextVersion"
 
 scalaVersion := "2.11.1"
