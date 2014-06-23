@@ -44,13 +44,13 @@ object Example extends Natives {
     GL11.glPixelStorei(GL11.GL_UNPACK_ALIGNMENT, 1)
 
     val vertices = BufferUtils.createFloatBuffer(4 * (4 + 2))
-    vertices.put(Array[Float](-1, 1, 0))
+    vertices.put(Array[Float](-1, 1, 0, 1))
     vertices.put(Array[Float](0, 0))
-    vertices.put(Array[Float](-1, -1, 0))
+    vertices.put(Array[Float](-1, -1, 0, 1))
     vertices.put(Array[Float](0, 640))
-    vertices.put(Array[Float](1, -1, 0))
+    vertices.put(Array[Float](1, -1, 0, 1))
     vertices.put(Array[Float](360, 640))
-    vertices.put(Array[Float](1, 1, 0))
+    vertices.put(Array[Float](1, 1, 0, 1))
     vertices.put(Array[Float](360, 0))
     vertices.flip()
 
@@ -79,7 +79,7 @@ object Example extends Natives {
       glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
       GL20.glUseProgram(programId)
 
-      val pixels = Array.tabulate[Color](640,360) { (x,y) => new Color(255, 0, 0) }
+      val pixels = Array.tabulate[Color](640,360) { (x,y) => new Color((x * 255f/640f).toInt, (y * 255f/360f).toInt, 0) }
       val width = pixels(0).length
       val height = pixels.length
 
